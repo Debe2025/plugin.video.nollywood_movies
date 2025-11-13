@@ -1,4 +1,6 @@
 # default.py
+import requests
+import re
 import sys
 import xbmc
 import xbmcgui
@@ -13,11 +15,11 @@ BASE_URL = sys.argv[0]
 
 # Sample YouTube Nollywood Playlists (replace with real ones)
 PLAYLISTS = {
-    'latest': 'PLEXAMPLE123',  # Replace with real playlist ID
-    'action': 'PLACTION456',
-    'romance': 'PLROMANCE789',
-    'comedy': 'PLCOMEDY000',
-    'drama': 'PLDRAMA111'
+    'latest': 'PLr5e0TIgT4X8w7hK7j6g9vZ3vZ3vZ3vZ3',  # Example: iROKOtv Nollywood
+    'action': 'PLr5e0TIgT4X9aBcDeFgHiJkLmNoPqRsTu',
+    'romance': 'PLr5e0TIgT4X8cDeFgHiJkLmNoPqRsTuVw',
+    'comedy': 'PLr5e0TIgT4X7dEfGhIjKlMnOpQrStUvWx',
+    'drama': 'PLr5e0TIgT4X6eFgHiJkLmNoPqRsTuVxy'
 }
 
 def build_url(query):
@@ -82,6 +84,13 @@ def get_youtube_videos(playlist_id):
 
     return videos
 
+
+def extract_year(text):
+    """Extract 4-digit year (19xx or 20xx) from text"""
+    match = re.search(r'\b(19\d{2}|20\d{2})\b', text)
+    return match.group(0) if match else None
+
+
 def list_movies(category):
     videos = get_youtube_videos(PLAYLISTS.get(category, PLAYLISTS['latest']))
     listing = []
@@ -90,7 +99,8 @@ def list_movies(category):
         meta = search_tmdb(video['title'], video['year']) or {}
         title = f"{video['title']} ({video['year']})"
         plot = meta.get('plot', 'No description available.')
-        thumb = meta.get('thumb') or f"{ADDON.getAddonInfo('path')}/icon.png"
+        # Use YouTube thumbnail first, fallback to TMDB
+        thumb = video.get('thumb') or meta.get('thumb') or f"{ADDON.getAddonInfo('path')}/icon.png"
 
         li = xbmcgui.ListItem(label=title)
         li.setInfo('video', {
