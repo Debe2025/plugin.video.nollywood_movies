@@ -24,11 +24,63 @@ def build_url(query):
     return f"{BASE_URL}?{urllib.parse.urlencode(query)}"
 
 def get_youtube_videos(playlist_id):
-    # Placeholder: Use YouTube API or yt-dlp in real addon
-    return [
-        {'title': 'Living in Bondage', 'video_id': 'dQw4w9WgXcQ', 'year': '2019'},
-        {'title': 'The Wedding Party', 'video_id': 'abc123', 'year': '2016'},
-    ]
+    """
+    Fetch real videos from a YouTube playlist using YouTube Data API v3
+    """
+    import requests
+
+    YOUTUBE_API_KEY = ADDON.getSetting('youtube_api_key')
+    if not YOUTUBE_API_KEY:
+        xbmcgui.Dialog().ok("Error", "YouTube API Key not set in addon settings.")
+        return []
+
+    url = "https://www.googleapis.com/youtube/v3/playlistItems"
+    videos = []
+    next_page_token = ""
+
+    try:
+        while True:
+            params = {
+                'part': 'snippet',
+                'playlistId': playlist_id,
+                'maxResults': 50,
+                'key': YOUTUBE_API_KEY,
+                'pageToken': next_page_token
+            }
+            response = requests.get(url, params=params, timeout=15)
+            data = response.json()
+
+            if 'error' in data:
+                xbmc.log(f"YouTube API Error: {data['error']['message']}", xbmc.LOGERROR)
+                xbmcgui.Dialog().ok("YouTube Error", data['error']['message'])
+                break
+
+            for item in data.get('items', []):
+                snippet = item['snippet']
+                if snippet['resourceId']['kind'] != 'youtube#video':
+                    continue
+
+                video_id = snippet['resourceId']['videoId']
+                title = snippet['title']
+                # Extract year from title or description (fallback)
+                year = extract_year(title) or extract_year(snippet.get('description', ''))
+
+                videos.append({
+                    'title': title,
+                    'video_id': video_id,
+                    'year': year or 'Unknown',
+                    'thumb': snippet['thumbnails']['high']['url']
+                })
+
+            next_page_token = data.get('nextPageToken')
+            if not next_page_token:
+                break
+
+    except Exception as e:
+        xbmc.log(f"YouTube fetch error: {str(e)}", xbmc.LOGERROR)
+        xbmcgui.Dialog().ok("Network Error", "Failed to fetch YouTube videos.")
+
+    return videos
 
 def list_movies(category):
     videos = get_youtube_videos(PLAYLISTS.get(category, PLAYLISTS['latest']))
