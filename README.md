@@ -1,7 +1,7 @@
-﻿# Nollywood Movies  Kodi Video Add-on
+﻿# Nollywood Movies  Kodi Add-on
 
-**Stream Nollywood classics & new releases in Kodi!**  
-Powered by **yt-dlp** (clean, legal, bundled).
+**Stream Nollywood movies in Kodi!**  
+10+ channels, Auto HD, no login.
 
 ---
 
@@ -9,16 +9,8 @@ Powered by **yt-dlp** (clean, legal, bundled).
 
 [Download v2.0.0](plugin.video.nollywood_movies-2.0.0.zip)
 
-1. Kodi  Add-ons  Box icon  **Install from ZIP file**  
-2. Select the ZIP  Done!
-
----
-
-## Features
-
-- 10+ Nollywood YouTube channels  
-- Auto HD, search, no login  
-- GitHub-safe, no secrets
+1. Kodi  Add-ons  **Install from ZIP file**  
+2. Select ZIP  Done!
 
 ---
 
