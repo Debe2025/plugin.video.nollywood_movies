@@ -1,5 +1,8 @@
 # Nollywood Movies – Kodi Video Add-on
 
+[![GitHub release](https://img.shields.io/github/v/release/coolitis/plugin.video.nollywood_movies?label=Version)](https://github.com/coolitis/plugin.video.nollywood_movies/releases)  
+[![Kodi Add-on](https://img.shields.io/badge/Kodi-Video%20Add--on-blue)](https://kodi.tv)
+
 ![Nollywood Movies](icon.png)
 
 **Watch the latest Nollywood movies, classics, and hidden gems — directly in Kodi!**  
@@ -23,7 +26,7 @@ Powered by **yt-dlp** (bundled & auto-updated), no external players needed.
 ### Method 1: Install from ZIP (Recommended)
 
 1. **Download the latest ZIP**  
-   [plugin.video.nollywood_movies-1.0.0.zip](https://github.com/coolitis/plugin.video.nollywood_movies/archive/refs/heads/main.zip)
+   [plugin.video.nollywood_movies-1.0.0.zip](plugin.video.nollywood_movies-1.0.0.zip)
 
 2. Open **Kodi** → **Add-ons** → Click the **box icon** (top-left)  
    → **"Install from ZIP file"**
@@ -95,6 +98,7 @@ Powered by **yt-dlp** (bundled & auto-updated), no external players needed.
 ## Source & Support
 
 - **GitHub**: [github.com/coolitis/plugin.video.nollywood_movies](https://github.com/coolitis/plugin.video.nollywood_movies)
+- **Download ZIP**: [plugin.video.nollywood_movies-1.0.0.zip](plugin.video.nollywood_movies-1.0.0.zip)
 - **Report Issues**: [Open an Issue](https://github.com/coolitis/plugin.video.nollywood_movies/issues)
 - **Developer**: coolitis
 
