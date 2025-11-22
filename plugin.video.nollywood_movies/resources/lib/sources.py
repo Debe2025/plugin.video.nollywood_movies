@@ -1,7 +1,12 @@
 ﻿# -*- coding: utf-8 -*-
 import xbmc
-import xbmcaddon
 import xbmcgui
+import xbmcaddon
+ADDON = xbmcaddon.Addon()
+
+API_KEY = ADDON.getSetting('youtube_api_key')
+if not API_KEY:
+    API_KEY = "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  # optional fallback
 \"""
 Nollywood Movies  Video Sources (v2.0.0)
 All links are public YouTube channels  verified working in 2025.
