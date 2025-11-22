@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+    <addon id="repository.debe" version="1.0.0" name="Debe Repository">
+        <extension point="xbmc.addon.repository">
+            <info compressed="false">https://debe2025.github.io/addons.xml</info>
+            <checksum>https://debe2025.github.io/addons.xml.md5</checksum>
+            <datadir zipped="true">https://debe2025.github.io/repository.debe-1.0.0.zip</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>Debe's Kodi Addons (Nollywood, Christian Movies)</summary>
+            <description>Free streaming addons for African & Christian content.</description>
+            <platform>all</platform>
+        </extension>
+    </addon>
+    <addon id="plugin.video.nollywood_movies" version="1.0.0" name="Nollywood Movies">
+        <extension point="xbmc.addon.repository">
+            <datadir zipped="true">https://github.com/Debe2025/plugin.video.nollywood_movies/releases/download/v1.0.0/plugin.video.nollywood_movies-1.0.0.zip</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>Stream Nollywood movies from YouTube</summary>
+        </extension>
+    </addon>
+    <!-- Add more addons here, e.g. Christian Movies -->
+</addons>
