@@ -9,7 +9,7 @@ No sign-up, no subscription, no downloading.
 ## Download & Install (30 seconds)
 
 **Latest Version (v1.0.0 – 2025)**  
-[Download plugin.video.nollywood_movies.zip](https://github.com/Debe2025/plugin.video.nollywood_movies/releases/download/v1.0.0/plugin.video.nollywood_movies-1.0.0.zip)
+https://github.com/Debe2025/plugin.video.nollywood_movies/releases/download/v1.0.0/plugin.video.nollywood_movies-1.0.0.zip 
 
 1. Open Kodi  
 2. Go to **Add-ons** → Click the open-box icon (top-left) → **Install from ZIP file**  
